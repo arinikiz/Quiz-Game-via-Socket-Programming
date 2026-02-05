@@ -108,32 +108,6 @@ Communication uses a simple text-based protocol over TCP. Messages are newline-t
 
 ## Architecture
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                      SERVER                             │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐  │
-│  │   Accept    │  │    Game     │  │  Answer Lock    │  │
-│  │   Thread    │  │   Thread    │  │  (threading)    │  │
-│  └─────────────┘  └─────────────┘  └─────────────────┘  │
-│         │                │                  │           │
-│         ▼                ▼                  ▼           │
-│  ┌──────────────────────────────────────────────────┐   │
-│  │              Shared State                        │   │
-│  │  • clients_by_name: {name: socket}               │   │
-│  │  • scores: {name: points}                        │   │
-│  │  • current_answers: {name: answer}               │   │
-│  └──────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────┘
-                          │
-                    TCP Sockets
-                          │
-        ┌─────────────────┼─────────────────┐
-        ▼                 ▼                 ▼
-   ┌─────────┐       ┌─────────┐       ┌─────────┐
-   │ Client  │       │ Client  │       │ Client  │
-   │  Alice  │       │   Bob   │       │ Charlie │
-   └─────────┘       └─────────┘       └─────────┘
-```
 
 ### Concurrency Model
 
