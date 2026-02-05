@@ -151,19 +151,4 @@ Communication uses a simple text-based protocol over TCP. Messages are newline-t
 | Wrong answer | 0 |
 | No answer | 0 |
 
-## Project Structure
 
-```
-quiz-game-tcp/
-├── server_side.py    # Server application with game logic
-├── client_side.py    # Client application with player interface
-├── questions.txt     # Example questions file (create your own)
-├── screenshots/      # UI screenshots
-│   ├── server.png
-│   └── client.png
-└── README.md
-```
-
-## License
-
-MIT License — feel free to use, modify, and distribute.
